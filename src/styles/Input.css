@@ -1,0 +1,8 @@
+.input {
+  width: 50vw;
+  background-color: grey;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
