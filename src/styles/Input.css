@@ -1,8 +1,11 @@
 .input {
-  width: 50vw;
-  background-color: grey;
+  width: 50%;
+  background-color: rgb(231, 231, 231);
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.p-inputnumber-input {
+  width: 4vw;
 }
