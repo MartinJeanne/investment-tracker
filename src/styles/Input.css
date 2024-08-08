@@ -1,11 +1,11 @@
 .input {
-  width: 50%;
-  background-color: rgb(231, 231, 231);
+  width: 80vw;
+  margin-top: 5vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .p-inputnumber-input {
-  width: 4vw;
+  width: 8vw;
 }
