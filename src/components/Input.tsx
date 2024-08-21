@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import '../styles/Input.css'
+import '../styles/input.css'
 
 import { Calendar } from 'primereact/calendar';
 import { FloatLabel } from 'primereact/floatlabel';

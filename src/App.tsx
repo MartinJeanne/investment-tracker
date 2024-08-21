@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import { PrimeReactProvider } from 'primereact/api';
 import "primereact/resources/themes/lara-light-blue/theme.css";
@@ -6,21 +6,28 @@ import "primereact/resources/themes/lara-light-blue/theme.css";
 import Transaction from './components/Transaction'
 import Input from './components/Input'
 
-const initialTransactions = [
-  { date: '1', type: 'Laptop', quantity: 15, cost: 1 },
-  { date: '1', type: 'Smartphone', quantity: 50, cost: 1 },
-  { date: '1', type: 'Desk Chair', quantity: 10, cost: 1 },
-];
+interface Transaction {
+  date: string;
+  type: string;
+  quantity: number;
+  cost: number;
+}
 
 function App() {
-  const [transactions, setTransactions] = useState(initialTransactions);
+  const [transactions, setTransactions] = useState<Transaction>();
 
+  useEffect(() => {
+    fetch('/fakeData.json')
+      .then((response) => response.json())
+      .then((jsonData: Transaction) => setTransactions(jsonData))
+      .catch((error) => console.error('Error loading JSON:', error));
+  }, []);
 
-  function handleSubmit(input) {
+  function handleSubmit(input: Transaction) {
     addToTransactions(input);
   }
 
-  function addToTransactions(v) {
+  function addToTransactions(v: Transaction) {
     setTransactions([...transactions, { date: v.date, type: v.type, quantity: v.quantity, cost: v.cost }])
   }
 

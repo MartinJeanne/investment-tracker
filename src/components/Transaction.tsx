@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import '../styles/Input.css'
+import '../styles/transaction.css'
 
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
@@ -11,7 +11,7 @@ type TransactionProps = {
 export default function Transaction({ transactions }: TransactionProps) {
 
     return (
-        <DataTable value={transactions} tableStyle={{ width: '80vw' }}>
+        <DataTable value={transactions} className='dataTable'>
             <Column field="date" header="Date"></Column>
             <Column field="type" header="Type"></Column>
             <Column field="quantity" header="Quantity"></Column>
