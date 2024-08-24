@@ -3,18 +3,12 @@ import './App.css'
 import { PrimeReactProvider } from 'primereact/api';
 import "primereact/resources/themes/lara-light-blue/theme.css";
 
-import Transaction from './components/Transaction'
+import TransactionHistoy from './components/TransactionHistoy'
 import Input from './components/Input'
-
-interface Transaction {
-  date: string;
-  type: string;
-  quantity: number;
-  cost: number;
-}
+import {Transaction} from './types/types'
 
 function App() {
-  const [transactions, setTransactions] = useState<Transaction>();
+  const [transactions, setTransactions] = useState<Array<Transaction>>([]);
 
   useEffect(() => {
     fetch('/fakeData.json')
@@ -28,12 +22,12 @@ function App() {
   }
 
   function addToTransactions(v: Transaction) {
-    setTransactions([...transactions, { date: v.date, type: v.type, quantity: v.quantity, cost: v.cost }])
+    setTransactions(prevTransactions => [...prevTransactions, v]);
   }
 
   return (
     <PrimeReactProvider>
-      <Transaction transactions={transactions} />
+      <TransactionHistoy transactions={transactions} />
       <Input handleSubmit={handleSubmit} />
     </PrimeReactProvider>
   )

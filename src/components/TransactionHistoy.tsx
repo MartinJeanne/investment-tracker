@@ -1,14 +1,14 @@
-import { useEffect, useState } from 'react'
 import '../styles/transaction.css'
 
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
+import { Transaction } from '../types/types'
 
 type TransactionProps = {
-    transactions: any;
+    transactions: Array<Transaction>;
 };
 
-export default function Transaction({ transactions }: TransactionProps) {
+export default function TransactionHistoy({ transactions }: TransactionProps) {
 
     return (
         <DataTable value={transactions} className='dataTable'>
